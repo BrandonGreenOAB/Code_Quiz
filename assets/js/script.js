@@ -65,8 +65,8 @@ function nextQuestion() {
     //appends the text we created to the displayquestionsel
     $(displayQuestionEl).append(mainDisplay);
 
-    //creating button for questions
-    var choicesContainer = document.createElement("button")
+    //creating div for questions
+    var choicesContainer = document.createElement("div")
 
     //use a loop to: this for loop makes the loop as long as the currentquestion.choices length which is four.
     for (let i = 0; i < currentQuestion.choices.length; i++) {
