@@ -9,9 +9,9 @@ var mainDisplay = document.createElement("h3");
 
 var buttonEl = document.createElement("button");
 
-var timer = 5;
+var timer = 75;
 
-var index = 0;
+var i = 0;
 
 function openingPage() {
     mainDisplay.textContent = ("Press the button to start!")
@@ -40,7 +40,7 @@ function showTimer() {
         // display timer to screen
         $(timerEl).text(timer);
         // if timer goes down to 0, clear interval
-        if (timer === 0){
+        if (timer <= 0){
             clearInterval(questionTimer)
         }
 
@@ -52,7 +52,7 @@ function showTimer() {
 
 function nextQuestion() {
 
-    var currentQuestion = questions[index];
+    var currentQuestion = questions[i];
 
     console.log(currentQuestion);
 
@@ -75,27 +75,53 @@ function nextQuestion() {
         var choiceBtn = document.createElement("button");
 
         //add text to each button from question choices
-        $(choiceBtn).text = currentQuestion.choices[i];
+        $(choiceBtn).text(currentQuestion.choices[i]);
 
         //add a click event listener to button to check answers
         choiceBtn.addEventListener("click", checkAnswer)
 
         //append buttons to div element created to wrap choices
         choicesContainer.append(choiceBtn);
-        
        
-        
     }
 
      //append div element to the question container element
-    $(displayQuestionEl).append(choicesContainer);
+    // $(displayQuestionEl).append(choicesContainer);
+    displayQuestionEl.append(choicesContainer)
     
     
 }
 
-function checkAnswer() {
+function checkAnswer(e) {
+
+    function stopTime(){
+
+        clearInterval(questionTimer);
+        
+    }
+
+    var responseTxt = e.target.textContent;
+
+    if (responseTxt === questions[i].answer) {
+
+        console.log("correct")
+
+    }
+    else {
+        timer = timer - 5;
+        console.log("incorrect")
+    }
+
+    i++;
+
+    nextQuestion();
+
+    if (i >= i.length) {
+        stopTime();
+    }
 
 }
+
 
 // buttonEl.addEventListener("click", startQuiz());
 $(buttonEl).on("click", startQuiz)
