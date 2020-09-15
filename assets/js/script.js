@@ -53,8 +53,15 @@ function showTimer() {
 function nextQuestion() {
 
     var currentQuestion = questions[index];
-    console.log(currentQuestion)
-    $(displayQuestionEl).text("")
+    
+    console.log(currentQuestion);
+
+    $(displayQuestionEl).text("");
+
+    $(mainDisplay).text(currentQuestion.title);
+
+    $(displayQuestionEl).append(mainDisplay);
+
 }
 
 function checkAnswer() {
