@@ -5,19 +5,19 @@ var questions = [
       answer: "npm"
     },
     {
-      title: "Example Question 2:",
-      choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-      answer: "answer from choices"
+      title: "When using an array, how would you scale it?",
+      choices: ["index", "DOM Manipulation", "Jquery", "Packet loss"],
+      answer: "index"
     },
     {
-      title: "Example Question 2:",
-      choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-      answer: "answer from choices"
+      title: "What is the most used coding language?",
+      choices: ["C++", "HTML", "JavaScript", "Python"],
+      answer: "JavaScript"
     },
     {
-      title: "Example Question 2:",
-      choices: ["Choice 1", "Choice 2", "Choice 3", "Choice 4"],
-      answer: "answer from choices"
+      title: "Who invited JavaScript?",
+      choices: ["Brendan Eich", "Walter White", "Bill Gates", "Elon Musk"],
+      answer: "Brendan Eich"
     }
   ];
 

@@ -13,6 +13,10 @@ var timer = 75;
 
 var i = 0;
 
+var questionTimer;
+
+var highScores = [];
+
 function openingPage() {
     mainDisplay.textContent = ("Press the button to start!")
 
@@ -34,7 +38,7 @@ function showTimer() {
     $(timerEl).text(timer)
 
     //setInterval and store it into a variable
-    var questionTimer = setInterval(function(){
+        questionTimer = setInterval(function(){
         // decrease timer by 1
         timer--;
         // display timer to screen
@@ -46,11 +50,10 @@ function showTimer() {
 
     }, 1000)
 
-
-
 }
 
 function nextQuestion() {
+
 
     var currentQuestion = questions[i];
 
@@ -85,6 +88,7 @@ function nextQuestion() {
        
     }
 
+
      //append div element to the question container element
     // $(displayQuestionEl).append(choicesContainer);
     displayQuestionEl.append(choicesContainer)
@@ -97,28 +101,51 @@ function checkAnswer(e) {
     function stopTime(){
 
         clearInterval(questionTimer);
-        
+
     }
 
     var responseTxt = e.target.textContent;
 
     if (responseTxt === questions[i].answer) {
 
-        console.log("correct")
+        $(resultsEl).text("correct!")
 
     }
     else {
         timer = timer - 5;
-        console.log("incorrect")
+        $(resultsEl).text("Incorrect!")
     }
 
     i++;
 
     nextQuestion();
 
-    if (i >= i.length) {
+    if (i >= questions.length -1) {
         stopTime();
+        $(timerEl).text(timer);
+        gameOver();  
     }
+    
+
+}
+
+function gameOver () {
+    if (timer < 0) {
+        score = 0;
+    }
+    else {
+        score = timer;
+    }
+    timerEl.style.display = "none";
+
+    resultDisplay.style.display = "none";
+    
+    var bottomDiv = document.querySelector(".buttonDiv")
+    bottomDiv.innerHTML = "";
+    mainDisplay.textContent = "Your score is " + score + "!"
+    form.setAttribute("type", "text");
+    form.setAttribute("name", "Name")
+    form.setAttribute("placeholder", "Enter your name!")
 
 }
 
