@@ -31,6 +31,17 @@ function showTimer() {
 
     $(timerEl).text(timer)
 
+    //setInterval and store it into a variable
+    var questionTimer = setInterval(function(){
+        // decrease timer by 1
+        timer--;
+        // display timer to screen
+        $(timerEl).text(timer)
+
+        // if timer goes down to 0, clear interval
+
+    }, 1000)
+
 }
 
 function nextQuestion() {
