@@ -9,7 +9,7 @@ var mainDisplay = document.createElement("h3");
 
 var buttonEl = document.createElement("button");
 
-var timer = 75;
+var timer = 5;
 
 var index = 0;
 
@@ -36,16 +36,22 @@ function showTimer() {
         // decrease timer by 1
         timer--;
         // display timer to screen
-        $(timerEl).text(timer)
-
+        $(timerEl).text(timer);
         // if timer goes down to 0, clear interval
+        if (timer === 0){
+            clearInterval(questionTimer)
+        }
 
     }, 1000)
+
+    nextQuestion();
 
 }
 
 function nextQuestion() {
 
+    var currentQuestion = questions[index];
+    console.log(currentQuestion)
 }
 
 function checkAnswer() {
