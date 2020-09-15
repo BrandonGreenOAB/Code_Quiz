@@ -23,7 +23,9 @@ function openingPage() {
 
 function startQuiz() {
 
-    showTimer()
+    showTimer();
+
+    nextQuestion();
 
 }
 
@@ -44,7 +46,7 @@ function showTimer() {
 
     }, 1000)
 
-    nextQuestion();
+
 
 }
 
@@ -52,6 +54,7 @@ function nextQuestion() {
 
     var currentQuestion = questions[index];
     console.log(currentQuestion)
+    $(displayQuestionEl).text("")
 }
 
 function checkAnswer() {
