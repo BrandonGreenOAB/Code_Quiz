@@ -23,14 +23,13 @@ function openingPage() {
 
 function startQuiz() {
 
-    showTimer();
+    showTimer()
 
 }
 
 function showTimer() {
 
-    timerEl.textContent = timer;
-
+    $(timerEl).text(timer)
 
 }
 
@@ -42,6 +41,7 @@ function checkAnswer() {
 
 }
 
-buttonEl.addEventListener("click", startQuiz());
+// buttonEl.addEventListener("click", startQuiz());
+$(buttonEl).on("click", startQuiz)
 
 openingPage();
