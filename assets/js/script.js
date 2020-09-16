@@ -17,10 +17,10 @@ var questionTimer;
 
 var highScoresArr = [];
 
-var highScores = {
-    name: x,
-    score: finalScore
-}
+// var highScores = {
+//     name: x,
+//     score: finalScore
+// }
 
 function openingPage() {
     mainDisplay.textContent = ("Press the button to start!")
@@ -103,12 +103,6 @@ function nextQuestion() {
 
 function checkAnswer(e) {
 
-    function stopTime(){
-
-        clearInterval(questionTimer);
-
-    }
-
     var responseTxt = e.target.textContent;
 
     if (responseTxt === questions[i].answer) {
@@ -142,18 +136,38 @@ function gameOver () {
     else {
         score = timer;
     }
-    // timerEl.textContent = "";
-    $(displayQuestionEl).text("");
-    $(timerEl).text("");
-    $(resultsEl).text("");
-    
-    
-    // var bottomDiv = document.querySelector(".buttonDiv")
-    // bottomDiv.innerHTML = "";
-    // mainDisplay.textContent = "Your score is " + score + "!"
-    // localStorage.setItem("highScore", "timer")
+    console.log(timer);
 
+    // $(displayQuestionEl).text("");
+
+    $(timerEl).text("");
+
+    $(resultsEl).text("");
+
+    $(displayQuestionEl).text("Highscores!");
+
+    var form = document.createElement("form")
+    form.setAttribute("method", "post");
+    form.setAttribute("action", "submit")
+    form.appendTo(resultsEl)
+
+
+    
+
+
+    
+    //create form, click even, value from the form (initials), score is timer
+    //create an object with name and score for each person
+    //push the objects into the array
+    //var testArr = JSON.parse(localStorage.getItem("highScoresLocal "))
+    // localStorage.setItem("highScoresLocal", JSON.stringify(highscoresArr))
+    // var testArr = JSON.parse(localStorage.getItem("highScoresLocal"))
+    // then you can use testArr to place it on the page
+    //get the items from local storage and put them into an array and then you want to push the new objects into an array and save that array
+ 
 }
+
+
 
 
 // buttonEl.addEventListener("click", startQuiz());
