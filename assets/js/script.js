@@ -15,7 +15,12 @@ var i = 0;
 
 var questionTimer;
 
-var highScores = [];
+var highScoresArr = [];
+
+var highScores = {
+    name: x,
+    score: finalScore
+}
 
 function openingPage() {
     mainDisplay.textContent = ("Press the button to start!")
@@ -117,35 +122,36 @@ function checkAnswer(e) {
     }
 
     i++;
-
-    nextQuestion();
-
-    if (i >= questions.length -1) {
-        stopTime();
+    
+    if (timer <= 0 || i > questions.length -1) {
+        clearInterval(questionTimer)
         $(timerEl).text(timer);
         gameOver();  
+    }
+    else {
+        nextQuestion();
     }
     
 
 }
 
 function gameOver () {
-    if (timer < 0) {
+    if (timer <= 0) {
         score = 0;
     }
     else {
         score = timer;
     }
-    timerEl.style.display = "none";
-
-    resultDisplay.style.display = "none";
+    // timerEl.textContent = "";
+    $(displayQuestionEl).text("");
+    $(timerEl).text("");
+    $(resultsEl).text("");
     
-    var bottomDiv = document.querySelector(".buttonDiv")
-    bottomDiv.innerHTML = "";
-    mainDisplay.textContent = "Your score is " + score + "!"
-    form.setAttribute("type", "text");
-    form.setAttribute("name", "Name")
-    form.setAttribute("placeholder", "Enter your name!")
+    
+    // var bottomDiv = document.querySelector(".buttonDiv")
+    // bottomDiv.innerHTML = "";
+    // mainDisplay.textContent = "Your score is " + score + "!"
+    // localStorage.setItem("highScore", "timer")
 
 }
 
