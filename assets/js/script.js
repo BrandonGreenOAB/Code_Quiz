@@ -23,6 +23,8 @@ var finalScore = timer;
 
 var highScores = {};
 
+var hsSubmit = $(".hsSubmit")
+
 function openingPage() {
     mainDisplay.textContent = ("Press the button to start!")
 
@@ -32,6 +34,7 @@ function openingPage() {
 
     $("#highscores-form").css("display", "none")
 }
+
 
 function startQuiz() {
 
@@ -149,16 +152,28 @@ function gameOver () {
 
     $(displayQuestionEl).text("High Scores!");
 
-    $("#highscores-form").css("display", "inline")
+    $("#highscores-form").css("display", "inline");
 
-    $(".hsSubmit").on("click", function() {
+    
 
-        $('#initials').value;
+    $(".hsSubmit").on("click", function(e) {
+
+        e.preventDefault();
+
+        console.log(document.getElementById("initials").value);
+
+        highScoresArr.push(document.getElementById("initials").value + ": " + timer);
+
+        console.log(highScoresArr);
+
+        localStorage.setItem("highScoresArr", JSON.stringify(highScoresArr));
+
+        location.href = "highscores.html";
 
 
     })
     
-
+    
     
     //create form, click event, value from the form (initials), score is timer
     //create an object with name and score for each person
@@ -184,8 +199,7 @@ function gameOver () {
 
 
 
-
+openingPage();
 // buttonEl.addEventListener("click", startQuiz());
 $(buttonEl).on("click", startQuiz)
 
-openingPage();
