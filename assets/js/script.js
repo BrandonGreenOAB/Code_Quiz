@@ -25,6 +25,10 @@ var highScores = {};
 
 var hsSubmit = $(".hsSubmit")
 
+var submitBttn = document.createElement("button")
+
+var clearBttn = document.createElement("button")
+
 function openingPage() {
     mainDisplay.textContent = ("Press the button to start!")
 
@@ -33,6 +37,14 @@ function openingPage() {
     $(displayQuestionEl).append(mainDisplay, buttonEl)
 
     $("#highscores-form").css("display", "none")
+
+    var storedHighscores = JSON.parse(localStorage.getItem("highScoresArr"))
+
+    if (storedHighscores !== null) {
+
+        highScoresArr = storedHighscores;
+
+    }
 }
 
 
@@ -135,6 +147,58 @@ function checkAnswer(e) {
 
 }
 
+function highscoresPage() {
+
+
+    displayQuestionEl.textContent = "";
+
+    var storedHighscores = JSON.parse(localStorage.getItem("highScoresArr"))
+
+    if (storedHighscores !== null) {
+
+        highScoresArr = storedHighscores;
+
+    }
+
+    for (let i = 0; i < highScoresArr.length; i++) {
+        
+        var highscore = highScoresArr[i];
+
+        var li = document.createElement("li");
+
+        li.textContent = highscore;
+
+        li.setAttribute("data-index", i);
+
+        displayQuestionEl.append(li);
+        
+    }
+
+    submitBttn.textContent = "Go Back"
+    
+    clearBttn.textContent = "Clear Highscores"
+
+    displayQuestionEl.append(submitBttn, clearBttn)
+
+    submitBttn.addEventListener("click", function(e){
+        e.preventDefault();
+        location.href = "index.html";
+    })
+
+    clearBttn.addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        highScoresArr = [];
+
+        saveHighScr();
+
+        highscoresPage();
+
+    })
+
+}
+
 function gameOver () {
     if (timer <= 0) {
         score = 0;
@@ -154,7 +218,6 @@ function gameOver () {
 
     $("#highscores-form").css("display", "inline");
 
-    
 
     $(".hsSubmit").on("click", function(e) {
 
@@ -166,10 +229,11 @@ function gameOver () {
 
         console.log(highScoresArr);
 
-        localStorage.setItem("highScoresArr", JSON.stringify(highScoresArr));
+        saveHighScr();
 
-        location.href = "highscores.html";
-
+        location.href = "highscores.html"; 
+        
+        highscoresPage();
 
     })
     
@@ -186,20 +250,21 @@ function gameOver () {
  
 }
 
-// function init () {
-//     var storedScore = JSON.parse(localStorage.getItem("highscores"));
+function saveHighScr() {
 
-//     if (storedScore !== null) {
+    localStorage.setItem("highScoresArr", JSON.stringify(highScoresArr));
 
-//         highScores.name = storedScore;
+}
+var path = window.location.pathname;
 
-//     }
-    
-// }
+var page = path.split("/").pop();
 
-
-
-openingPage();
+if (page == "highscores.html"){
+    highscoresPage();
+}
+else {
+    openingPage();
+}
 // buttonEl.addEventListener("click", startQuiz());
 $(buttonEl).on("click", startQuiz)
 
