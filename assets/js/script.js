@@ -17,10 +17,14 @@ var questionTimer;
 
 var highScoresArr = [];
 
-// var highScores = {
-//     name: x,
-//     score: finalScore
-// }
+var highscoreForm = $("#highscores-form")
+
+var finalScore = timer;
+
+var highScores = {
+    name: "",
+    score: finalScore
+}
 
 function openingPage() {
     mainDisplay.textContent = ("Press the button to start!")
@@ -28,6 +32,8 @@ function openingPage() {
     buttonEl.textContent = ("Start Quiz")
 
     $(displayQuestionEl).append(mainDisplay, buttonEl)
+
+    $("#highscores-form").css("display", "none")
 }
 
 function startQuiz() {
@@ -144,9 +150,16 @@ function gameOver () {
 
     $(resultsEl).text("");
 
-    $(displayQuestionEl).text("Please enter your initials!");
+    $(displayQuestionEl).text("High Scores!");
 
-    $("<form>Test</form>" ).appendTo(resultsEl);
+    $("#highscores-form").css("display", "inline")
+
+    $(".hsSubmit").on("click", )
+
+
+
+
+    // $("<form>Test</form>" ).appendTo(resultsEl);
 
 
 
@@ -154,7 +167,7 @@ function gameOver () {
 
 
     
-    //create form, click even, value from the form (initials), score is timer
+    //create form, click event, value from the form (initials), score is timer
     //create an object with name and score for each person
     //push the objects into the array
     //var testArr = JSON.parse(localStorage.getItem("highScoresLocal "))
@@ -164,6 +177,17 @@ function gameOver () {
     //get the items from local storage and put them into an array and then you want to push the new objects into an array and save that array
  
 }
+
+// function init () {
+//     var storedScore = JSON.parse(localStorage.getItem("highscores"));
+
+//     if (storedScore !== null) {
+
+//         highScores.name = storedScore;
+
+//     }
+    
+// }
 
 
 
