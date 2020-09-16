@@ -21,10 +21,7 @@ var highscoreForm = $("#highscores-form")
 
 var finalScore = timer;
 
-var highScores = {
-    name: "",
-    score: finalScore
-}
+var highScores = {};
 
 function openingPage() {
     mainDisplay.textContent = ("Press the button to start!")
@@ -154,17 +151,13 @@ function gameOver () {
 
     $("#highscores-form").css("display", "inline")
 
-    $(".hsSubmit").on("click", )
+    $(".hsSubmit").on("click", function() {
+
+        $('#initials').value;
 
 
-
-
-    // $("<form>Test</form>" ).appendTo(resultsEl);
-
-
-
+    })
     
-
 
     
     //create form, click event, value from the form (initials), score is timer
