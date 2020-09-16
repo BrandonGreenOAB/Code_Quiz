@@ -144,12 +144,10 @@ function gameOver () {
 
     $(resultsEl).text("");
 
-    $(displayQuestionEl).text("Highscores!");
+    $(displayQuestionEl).text("Please enter your initials!");
 
-    var form = document.createElement("form")
-    form.setAttribute("method", "post");
-    form.setAttribute("action", "submit")
-    form.appendTo(resultsEl)
+    $("<form>Test</form>" ).appendTo(resultsEl);
+
 
 
     
