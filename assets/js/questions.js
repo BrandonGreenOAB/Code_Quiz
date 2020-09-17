@@ -18,6 +18,11 @@ var questions = [
       title: "Who invented JavaScript?",
       choices: ["Brendan Eich", "Walter White", "Bill Gates", "Elon Musk"],
       answer: "Brendan Eich"
+    },
+    {
+      title: "What is best practice when coding?",
+      choices: ["Scope Management", "Psuedo code", "File Organization", "All of the above"],
+      answer: "All of the above"
     }
   ];
 

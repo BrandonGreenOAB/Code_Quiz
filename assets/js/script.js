@@ -9,7 +9,7 @@ var mainDisplay = document.createElement("h3");
 
 var buttonEl = document.createElement("button");
 
-var timer = 60;
+var timer = 75;
 
 var i = 0;
 
