@@ -12,19 +12,60 @@ ul, li {
 }
 .highscrdiv {
     font-family: 'Proza Libre', sans-serif;
-    color: purple;
-}
+    color: darkseagreen;
 
-.display-questions, .HighScrTitle, #highscores-form {
+}
+.display-questions {
     font-family: 'Proza Libre', sans-serif;
     color: purple;
     background-color: darkseagreen;
     width: 50%;
     height: 100%;
     margin-left: 25%;
+    margin-top: 1%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 15px;
+    border-style: outset;
+    font-style: oblique;
+    
+    
+}
+
+.highscrdiv {
+    text-decoration: underline;
+    font-size: 30px;
+    font-family: 'Proza Libre', sans-serif;
+    color: purple;
+    background-color: darkseagreen;
+    width: 50%;
+    height: 100%;
+    margin-left: 25%;
+    margin-top: 1%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 15px;
+    border-style: outset;
+
+}
+
+.h1Txt {
+    font-size: 25px;
+}
+
+
+.HighScrTitle, #highscores-form {
+    font-family: 'Proza Libre', sans-serif;
+    color: purple;
+    background-color: darkseagreen;
+    width: 50%;
+    height: 100%;
+    margin-left: 25%;
+    margin-top: 1%;
+    padding-top: 15px;
     padding-bottom: 50px;
     border-radius: 25px;
-    border-style: inset;
+    
 }
 
 .formBckgrnd {
@@ -45,6 +86,10 @@ button, .hsSubmit {
     color: purple;
 }
 
+#initials {
+    background-color: beige;
+}
+
 html, body {
-    background-color: lightcoral
+    background-color: beige
 }
