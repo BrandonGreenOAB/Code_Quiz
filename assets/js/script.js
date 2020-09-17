@@ -150,7 +150,7 @@ function checkAnswer(e) {
 function highscoresPage() {
 
 
-    displayQuestionEl.textContent = "";
+    $(displayQuestionEl).text("");
 
     var storedHighscores = JSON.parse(localStorage.getItem("highScoresArr"))
 
@@ -232,8 +232,6 @@ function gameOver () {
         saveHighScr();
 
         location.href = "highscores.html"; 
-        
-        highscoresPage();
 
     })
     
