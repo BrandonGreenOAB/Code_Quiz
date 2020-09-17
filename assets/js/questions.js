@@ -1,6 +1,6 @@
 var questions = [
     {
-      title: "Which one of these is a JS package manager",
+      title: "Which one of these is a JS package manager?",
       choices: ["Node.js", "TypeScript", "DOM traversal", "npm"],
       answer: "npm"
     },
@@ -15,7 +15,7 @@ var questions = [
       answer: "JavaScript"
     },
     {
-      title: "Who invited JavaScript?",
+      title: "Who invented JavaScript?",
       choices: ["Brendan Eich", "Walter White", "Bill Gates", "Elon Musk"],
       answer: "Brendan Eich"
     }
