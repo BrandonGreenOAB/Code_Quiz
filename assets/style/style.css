@@ -1,18 +1,49 @@
 ul, li {
     list-style-type: none;
     list-style: none;
+    background-color: darkgray;
+    width: 50%;
+    margin-left: 25%;
+    border-style: outset;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-family: 'Proza Libre', sans-serif;
 }
-
-.display-questions, .HighScrTitle, #highscores-form {
+.highscrdiv {
+    font-family: 'Proza Libre', sans-serif;
     color: purple;
 }
 
+.display-questions, .HighScrTitle, #highscores-form {
+    font-family: 'Proza Libre', sans-serif;
+    color: purple;
+    background-color: darkseagreen;
+    width: 50%;
+    height: 100%;
+    margin-left: 25%;
+    padding-bottom: 50px;
+    border-radius: 25px;
+    border-style: inset;
+}
+
 .formBckgrnd {
-    background-color: grey;
+    background-color:darkseagreen;
     width: 100%;
     height: 100%;
     padding-bottom: 100px;
     justify-content: center;
     border-radius: 25px;
     border-style: inset;
+}
+
+button, .hsSubmit {
+    font-family: 'Proza Libre', sans-serif;
+    margin-right: 10px;
+    border-style: outset;
+    background-color: darkgray;
+    color: purple;
+}
+
+html, body {
+    background-color: lightcoral
 }

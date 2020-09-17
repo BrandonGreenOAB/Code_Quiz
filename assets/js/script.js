@@ -9,7 +9,7 @@ var mainDisplay = document.createElement("h3");
 
 var buttonEl = document.createElement("button");
 
-var timer = 75;
+var timer = 60;
 
 var i = 0;
 
@@ -129,7 +129,7 @@ function checkAnswer(e) {
 
     }
     else {
-        timer = timer - 5;
+        timer = timer - 15;
         $(resultsEl).text("Incorrect!")
     }
 
@@ -201,7 +201,7 @@ function highscoresPage() {
 
 function gameOver () {
     if (timer <= 0) {
-        score = 0;
+        timer = 0;
     }
     else {
         score = timer;
